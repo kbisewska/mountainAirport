@@ -29,13 +29,21 @@
 import SwiftUI
 
 struct FlightBoard: View {
-  var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
-  }
+    var boardName: String
+    var flightData: [FlightInformation]
+    
+    var body: some View {
+        List(flightData) { flight in
+            NavigationLink(destination: FlightBoardInformation(flight: flight)) {
+                FlightRow(flight: flight)
+            }
+        }
+        .navigationBarTitle(boardName)
+    }
 }
 
 struct FlightBoard_Previews: PreviewProvider {
-  static var previews: some View {
-    FlightBoard()
-  }
+    static var previews: some View {
+        FlightBoard(boardName: "Test", flightData: FlightInformation.generateFlights())
+    }
 }
