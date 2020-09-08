@@ -38,10 +38,8 @@ struct FlightBoard: View {
     }
     
     var body: some View {
-        List(shownFlights) { flight in
-            NavigationLink(destination: FlightBoardInformation(flight: flight)) {
-                FlightRow(flight: flight)
-            }
+        List(flightData) { flight in
+            FlightRow(flight: flight)
         }
         .navigationBarTitle(boardName)
         .navigationBarItems(trailing: Toggle(isOn: $hideCancelled, label: {
