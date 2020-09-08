@@ -52,7 +52,7 @@ struct FlightRow: View {
             .sheet(isPresented: $isPresented, onDismiss: {
                 print("Modal dismissed. State now: \(self.isPresented)")
             }) {
-                FlightBoardInformation(flight: self.flight)
+                FlightBoardInformation(flight: self.flight, showModal: self.$isPresented)
             }
         }
     }

@@ -30,6 +30,7 @@ import SwiftUI
 
 struct FlightBoardInformation: View {
     var flight: FlightInformation
+    @Binding var showModal: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -38,6 +39,10 @@ struct FlightBoardInformation: View {
                     .font(.largeTitle)
                 
                 Spacer()
+                
+                Button("Done", action: {
+                    self.showModal = false
+                })
             }
             
             Text("\(flight.direction == .arrival ? "From: " : "To: ")" + "\(flight.otherAirport)")
@@ -54,6 +59,6 @@ struct FlightBoardInformation: View {
 
 struct FlightBoardInformation_Previews: PreviewProvider {
     static var previews: some View {
-        FlightBoardInformation(flight: FlightInformation.generateFlight(0))
+        FlightBoardInformation(flight: FlightInformation.generateFlight(0), showModal: .constant(true))
     }
 }
