@@ -36,6 +36,11 @@ struct AirportAwards: View {
                     .frame(width: 250, height: 250)
             
                 Text("First Visit")
+                
+                OverNightParkAward()
+                    .frame(width: 250, height: 250)
+                
+                Text("Left Car Overnight")
             }
         }
         .navigationBarTitle("Your Awards")
