@@ -29,11 +29,17 @@
 import SwiftUI
 
 struct AirportAwards: View {
-  var body: some View {
-    VStack {
-      Text("Your Awards").font(.title)
+    var body: some View {
+        VStack {
+            ScrollView {
+                FirstVisitAward()
+                    .frame(width: 250, height: 250)
+            
+                Text("First Visit")
+            }
+        }
+        .navigationBarTitle("Your Awards")
     }
-  }
 }
 
 struct AirportAwards_Previews: PreviewProvider {
