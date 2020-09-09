@@ -50,10 +50,16 @@ struct ContentView: View {
             Text("Departures")
           }
           
+          NavigationLink(destination: AirportAwards()) {
+            Text("Awards")
+          }
+          
           Spacer()
         }
         .font(.title)
         .padding(20)
+        
+        Spacer()
       }
       .navigationBarTitle(Text("Mountain Airport"))
     }
