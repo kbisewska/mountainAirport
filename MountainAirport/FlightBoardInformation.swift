@@ -28,6 +28,20 @@
 
 import SwiftUI
 
+extension AnyTransition {
+    static var flightDetailsTransition: AnyTransition {
+        let insertion = AnyTransition
+            .move(edge: .trailing)
+            .combined(with: .opacity)
+        
+        let removal = AnyTransition
+            .scale(scale: 0.0)
+            .combined(with: .opacity)
+        
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+}
+
 struct CheckInInfo: Identifiable {
     let id = UUID()
     let airline: String
@@ -38,6 +52,9 @@ struct FlightBoardInformation: View {
     var flight: FlightInformation
     @Binding var showModal: Bool
     @State private var showDetails = false
+    var flightDetailAnimation : Animation {
+        Animation.easeInOut
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -60,27 +77,25 @@ struct FlightBoardInformation: View {
             FlightConditionals(flight: self.flight)
             
             Button(action: {
-                self.showDetails.toggle()
+                withAnimation {
+                    self.showDetails.toggle()
+                }
             }) {
                 HStack {
-                    if showDetails {
-                        Text("Hide Details")
-                        
-                        Spacer()
-                  
-                        Image(systemName: "chevron.up.square")
-                    } else {
-                        Text("Show Details")
-                        
-                        Spacer()
-                  
-                        Image(systemName: "chevron.down.square")
-                    }
+                    Text(showDetails ? "Hide Details" : "Show Details")
+                    
+                    Spacer()
+                
+                    Image(systemName: "chevron.up.square")
+                        .scaleEffect(showDetails ? 2 : 1)
+                        .rotationEffect(.degrees(showDetails ? 0 : 180))
+                        .animation(flightDetailAnimation)
                 }
             }
             
             if showDetails {
                 FlightDetails(flight: flight)
+                    .transition(.flightDetailsTransition)
             }
             
             Spacer()
