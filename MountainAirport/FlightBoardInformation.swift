@@ -59,40 +59,7 @@ struct FlightBoardInformation: View {
             Text(flight.flightStatus)
                 .foregroundColor(Color(flight.timelineColor))
             
-            if flight.isRebookAvailable() {
-                Button("Rebook Flight", action: {
-                    self.rebookAlert = true
-                })
-                .alert(isPresented: $rebookAlert) {
-                    Alert(title: Text("Contact Your Airline"), message: Text("We cannot rebook this flight." + "Please contact the airline to reschedule this flight."))
-                }
-            }
-            
-            if flight.isCheckInAvailable() {
-                Button("Check In for Flight", action: {
-                    self.checkInFlight = CheckInInfo(airline: self.flight.airline, flight: self.flight.number)
-                })
-                    .actionSheet(item: $checkInFlight) { flight in
-                        ActionSheet(title: Text("Check In"),
-                                    message: Text("Check in for \(flight.airline)" + "Flight \(flight.flight)"),
-                                    buttons: [
-                                        .cancel(Text("Not Now")),
-                                        .destructive(Text("Reschedule"), action: {
-                                            print("Reschedule flight.")
-                                        }),
-                                        .default(Text("Check In"), action: {
-                                            print("Check-in for \(flight.airline) \(flight.flight).")
-                                        })
-                                    ])
-                }
-            }
-            
-            Button("On-Time History") {
-                self.showFlightHistory.toggle()
-            }
-            .popover(isPresented: $showFlightHistory, arrowEdge: .top) {
-                FlightTimeHistory(flight: self.flight)
-            }
+            FlightConditionals(flight: self.flight)
             
             Spacer()
         }
