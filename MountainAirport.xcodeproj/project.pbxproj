@@ -21,6 +21,7 @@
 		8F5A5BD32508F93D003977C9 /* AirportMealAward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A5BD22508F93D003977C9 /* AirportMealAward.swift */; };
 		8F5A5BD5250A3765003977C9 /* FlightConditionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A5BD4250A3765003977C9 /* FlightConditionals.swift */; };
 		8F5A5BD7250A3A3A003977C9 /* FlightDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A5BD6250A3A3A003977C9 /* FlightDetails.swift */; };
+		8F5A5BDA250A670D003977C9 /* TimelineTableViewCell in Frameworks */ = {isa = PBXBuildFile; productRef = 8F5A5BD9250A670D003977C9 /* TimelineTableViewCell */; };
 		A9C399CF2322C0C400E77AFE /* FlightTimeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C399CE2322C0C400E77AFE /* FlightTimeHistory.swift */; };
 		A9CF015F22FA4BF9009B3CC0 /* FlightHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF015E22FA4BF9009B3CC0 /* FlightHistory.swift */; };
 		E6C531532327123600BA40DF /* FlightBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C531522327123600BA40DF /* FlightBoard.swift */; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5A5BDA250A670D003977C9 /* TimelineTableViewCell in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +139,9 @@
 			dependencies = (
 			);
 			name = MountainAirport;
+			packageProductDependencies = (
+				8F5A5BD9250A670D003977C9 /* TimelineTableViewCell */,
+			);
 			productName = MyRWTutorial;
 			productReference = 18D775BD22AD944300AE281E /* MountainAirport.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 18D775B422AD944300AE281E;
+			packageReferences = (
+				8F5A5BD8250A670D003977C9 /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */,
+			);
 			productRefGroup = 18D775BE22AD944300AE281E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -408,6 +416,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F5A5BD8250A670D003977C9 /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kf99916/TimelineTableViewCell";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F5A5BD9250A670D003977C9 /* TimelineTableViewCell */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F5A5BD8250A670D003977C9 /* XCRemoteSwiftPackageReference "TimelineTableViewCell" */;
+			productName = TimelineTableViewCell;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18D775B522AD944300AE281E /* Project object */;
 }
