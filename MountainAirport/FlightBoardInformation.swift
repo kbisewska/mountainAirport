@@ -37,9 +37,7 @@ struct CheckInInfo: Identifiable {
 struct FlightBoardInformation: View {
     var flight: FlightInformation
     @Binding var showModal: Bool
-    @State private var rebookAlert: Bool = false
-    @State private var checkInFlight: CheckInInfo?
-    @State private var showFlightHistory = false
+    @State private var showDetails = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -60,6 +58,30 @@ struct FlightBoardInformation: View {
                 .foregroundColor(Color(flight.timelineColor))
             
             FlightConditionals(flight: self.flight)
+            
+            Button(action: {
+                self.showDetails.toggle()
+            }) {
+                HStack {
+                    if showDetails {
+                        Text("Hide Details")
+                        
+                        Spacer()
+                  
+                        Image(systemName: "chevron.up.square")
+                    } else {
+                        Text("Show Details")
+                        
+                        Spacer()
+                  
+                        Image(systemName: "chevron.down.square")
+                    }
+                }
+            }
+            
+            if showDetails {
+                FlightDetails(flight: flight)
+            }
             
             Spacer()
         }
