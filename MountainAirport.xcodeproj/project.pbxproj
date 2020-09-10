@@ -87,14 +87,12 @@
 			children = (
 				E6064A3C23285EBF00472924 /* MountainAirport.entitlements */,
 				8F5A5BDB250A6806003977C9 /* UI */,
+				8F5A5BDE250A6856003977C9 /* AwardViews */,
 				E6E2AE7B22D8D08600A3455A /* Models */,
 				18D775C022AD944300AE281E /* AppDelegate.swift */,
 				18D775C222AD944300AE281E /* SceneDelegate.swift */,
 				8F5A5BCA2508C5B9003977C9 /* AirportAwards.swift */,
 				18D775C422AD944300AE281E /* ContentView.swift */,
-				8F5A5BCE2508CAE4003977C9 /* FirstVisitAward.swift */,
-				8F5A5BD02508F620003977C9 /* OverNightParkAward.swift */,
-				8F5A5BD22508F93D003977C9 /* AirportMealAward.swift */,
 				A9C399CE2322C0C400E77AFE /* FlightTimeHistory.swift */,
 				E6C531522327123600BA40DF /* FlightBoard.swift */,
 				8F5A5BC825067121003977C9 /* FlightBoardInformation.swift */,
@@ -123,6 +121,16 @@
 				8F5A5BDC250A681B003977C9 /* TimelineTableViewCell.xib */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		8F5A5BDE250A6856003977C9 /* AwardViews */ = {
+			isa = PBXGroup;
+			children = (
+				8F5A5BD22508F93D003977C9 /* AirportMealAward.swift */,
+				8F5A5BCE2508CAE4003977C9 /* FirstVisitAward.swift */,
+				8F5A5BD02508F620003977C9 /* OverNightParkAward.swift */,
+			);
+			path = AwardViews;
 			sourceTree = "<group>";
 		};
 		E6E2AE7B22D8D08600A3455A /* Models */ = {
