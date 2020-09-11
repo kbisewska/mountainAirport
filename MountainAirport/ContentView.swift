@@ -50,6 +50,10 @@ struct ContentView: View {
             Text("Departures")
           }
           
+          NavigationLink(destination: FlightTimeline(flights: self.flightInfo)) {
+            Text("Flight Timeline")
+          }
+          
           NavigationLink(destination: AirportAwards()) {
             Text("Awards")
           }
